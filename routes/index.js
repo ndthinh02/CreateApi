@@ -19,6 +19,7 @@ var foodSchema = new mongo.Schema({
 })
 
 var Food = mongo.model('food', foodSchema);
+var Cake = mongo.model('cake', foodSchema);
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
@@ -26,6 +27,14 @@ router.get('/getAll', function (req, res) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET');
   Food.find({}, (err, data) => {
+    res.send((data))
+
+  })
+})
+router.get('/getCake', function (req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET');
+  Cake.find({}, (err, data) => {
     res.send((data))
 
   })
