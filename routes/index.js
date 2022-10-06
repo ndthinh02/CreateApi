@@ -57,7 +57,7 @@ router.post("/addFood", (req, res) => {
     type:type
   })
   food.save(function (err) {
-
+    res.redirect('/getAll')
   })
 })
 router.get('/addFood', (req, res) => {
