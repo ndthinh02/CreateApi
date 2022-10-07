@@ -34,7 +34,28 @@ router.get('/getAll', function (req, res) {
 router.get('/getCake', function (req, res) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET');
-  Cake.find({}, (err, data) => {
+  Food.find({
+    type: "1"
+  }, (err, data) => {
+    res.send((data))
+  })
+})
+router.get('/getDrink', function (req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET');
+  Food.find({
+    type: "2"
+  }, (err, data) => {
+    res.send((data))
+
+  })
+})
+router.get('/getFruit', function (req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET');
+  Food.find({
+    type: "3"
+  }, (err, data) => {
     res.send((data))
 
   })
