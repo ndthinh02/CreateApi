@@ -86,4 +86,16 @@ router.get('/addFood', (req, res) => {
   res.render('addPost')
 
 })
+router.get('/delete', function (req, res, next) {
+
+  Food.find({}, (err, data) => {
+    res.render('delete', {data: data});
+  })
+});
+router.post("/delete", (req, res) => {
+  var id = req.body.idDelete;
+  Food.findByIdAndRemove(id, (err, data) => {
+    res.redirect('/delete')
+  })
+})
 module.exports = router;
