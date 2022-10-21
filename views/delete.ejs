@@ -12,23 +12,22 @@
 <body>
 
 <div class="container">
+
   <% for(var i = 0;i < data.length;i++){ %>
-
-
         <img class="card-img-top" src="<%= data[i].urlImage %>" alt="Card image cap" height="630px">
-
           <div class="content" style="font-size: 1rem">
             <form method="post" action="/showDetail">
               <input name="id" value="<%=data[i]._id%>" hidden>
-
             </form>
           </div>
-
-
-
         <form method="post" action="/delete" style="padding: 10px">
           <input name="idDelete" value="<%=data[i]._id%>" hidden>
-          <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-danger">Delete</button>
+        </form>
+        <form method="post" action="/update" style="padding: 10px">
+            <input name="idUpdate" value="<%=data[i]._id%>">
+            <button class="btn btn-danger">Update</button>
+
         </form>
       </div>
 
